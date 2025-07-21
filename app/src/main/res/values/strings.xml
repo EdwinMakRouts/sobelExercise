@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Ejercicio SOBEL</string>
+    <string name="upload_image">Subir imagen</string>
+    <string name="select_image_button">Seleccionar imagen</string>
+    <string name="select_image_description">Elige una imagen para aplicar el filtro SOBEL</string>
+    <string name="compare_image">Comparación de imagenes</string>
+    <string name="before">Antes</string>
+    <string name="after">Después</string>
+    <string name="save_sobel_image">Guardar imagen SOBEL</string>
+    <string name="try_again">Probar con otra imagen</string>
+</resources>

@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -31,6 +32,7 @@ public class ResultScreenActivity extends AppCompatActivity {
     private ActivityResultScreenBinding binding;
 
     private ResultScreenViewModel viewModel;
+    Bitmap originalImage;
     Bitmap sobelImage;
 
     @Override
@@ -46,10 +48,15 @@ public class ResultScreenActivity extends AppCompatActivity {
 
         binding.saveImageButton.setOnClickListener(v -> saveImageSobel());
         binding.changeImageButton.setOnClickListener(v -> goToMainScreen());
+
+        binding.sobelImage.setOnClickListener(v -> makeImageBigger(sobelImage));
+        binding.normalImage.setOnClickListener(v -> makeImageBigger(originalImage));
+        binding.bigImage.setOnClickListener(v -> makeImageSmaller());
     }
 
     private void loadImages() {
-        binding.normalImage.setImageBitmap(viewModel.getOriginalImageBitmap());
+        originalImage = viewModel.getOriginalImageBitmap();
+        binding.normalImage.setImageBitmap(originalImage);
 
         sobelImage = viewModel.getSobelImageBitmap();
         binding.sobelImage.setImageBitmap(sobelImage);
@@ -68,5 +75,16 @@ public class ResultScreenActivity extends AppCompatActivity {
     private void goToMainScreen(){
         Intent intent = new Intent(this, MainScreenActivity.class);
         startActivity(intent);
+    }
+
+    private void makeImageBigger(Bitmap image){
+        binding.bigImage.setImageBitmap(image);
+        binding.resultContent.setVisibility(View.GONE);
+        binding.bigImage.setVisibility(View.VISIBLE);
+    }
+
+    private void makeImageSmaller(){
+        binding.bigImage.setVisibility(View.GONE);
+        binding.resultContent.setVisibility(View.VISIBLE);
     }
 }

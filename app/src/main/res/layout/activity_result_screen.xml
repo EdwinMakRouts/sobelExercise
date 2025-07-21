@@ -7,112 +7,127 @@
     android:layout_height="match_parent"
     tools:context=".presentation.resultScreenActivity.view.ResultScreenActivity">
 
-    <TextView
-        android:id="@+id/title2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="75dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginEnd="75dp"
-        android:text="@string/compare_image"
-        android:textAlignment="center"
-        android:textSize="@dimen/text_title"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="@string/compare_image" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/resultContent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/before_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginBottom="10dp"
-        android:width="90dp"
-        android:text="@string/before"
-        android:textAlignment="center"
-        android:textAllCaps="false"
-        android:textColor="@color/gray"
-        android:textSize="@dimen/text_label"
-        app:layout_constraintBottom_toTopOf="@+id/normal_image"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title2"
-        tools:text="@string/before" />
+        <TextView
+            android:id="@+id/title2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="75dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginEnd="75dp"
+            android:text="@string/compare_image"
+            android:textAlignment="center"
+            android:textSize="@dimen/text_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/compare_image" />
 
-    <TextView
-        android:id="@+id/after_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="60dp"
-        android:layout_marginBottom="10dp"
-        android:width="90dp"
-        android:text="@string/after"
-        android:textAlignment="center"
-        android:textColor="@color/gray"
-        android:textSize="@dimen/text_label"
-        app:layout_constraintBottom_toTopOf="@+id/sobel_image"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title2"
-        tools:text="@string/after" />
+        <TextView
+            android:id="@+id/before_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginBottom="10dp"
+            android:width="90dp"
+            android:text="@string/before"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/gray"
+            android:textSize="@dimen/text_label"
+            app:layout_constraintBottom_toTopOf="@+id/normal_image"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title2"
+            tools:text="@string/before" />
+
+        <TextView
+            android:id="@+id/after_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:layout_marginEnd="60dp"
+            android:layout_marginBottom="10dp"
+            android:width="90dp"
+            android:text="@string/after"
+            android:textAlignment="center"
+            android:textColor="@color/gray"
+            android:textSize="@dimen/text_label"
+            app:layout_constraintBottom_toTopOf="@+id/sobel_image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title2"
+            tools:text="@string/after" />
+
+        <ImageView
+            android:id="@+id/normal_image"
+            android:layout_width="140dp"
+            android:layout_height="150dp"
+            android:layout_marginStart="35dp"
+            android:layout_marginTop="10dp"
+            android:contentDescription="@string/before"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/before_text"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <ImageView
+            android:id="@+id/sobel_image"
+            android:layout_width="140dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="35dp"
+            android:contentDescription="@string/after"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/after_text"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <Button
+            android:id="@+id/save_image_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="45dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="45dp"
+            android:padding="16dp"
+            android:text="@string/save_sobel_image"
+            android:textAlignment="center"
+            android:textSize="@dimen/text_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/normal_image" />
+
+        <Button
+            android:id="@+id/change_image_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="45dp"
+            android:layout_marginTop="35dp"
+            android:layout_marginEnd="45dp"
+            android:padding="16dp"
+            android:text="@string/try_again"
+            android:textAlignment="center"
+            android:textSize="@dimen/text_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/save_image_button" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageView
-        android:id="@+id/normal_image"
-        android:layout_width="140dp"
-        android:layout_height="150dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="31dp"
-        android:contentDescription="@string/before"
-        app:layout_constraintEnd_toStartOf="@+id/sobel_image"
+        android:id="@+id/bigImage"
+        android:layout_width="500dp"
+        android:layout_height="500dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:contentDescription="Big image"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/before_text"
+        app:layout_constraintTop_toTopOf="@+id/resultContent"
         tools:srcCompat="@tools:sample/avatars" />
-
-    <ImageView
-        android:id="@+id/sobel_image"
-        android:layout_width="140dp"
-        android:layout_height="150dp"
-        android:layout_marginStart="31dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="50dp"
-        android:contentDescription="@string/after"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/normal_image"
-        app:layout_constraintTop_toBottomOf="@+id/after_text"
-        tools:srcCompat="@tools:sample/avatars" />
-
-    <Button
-        android:id="@+id/save_image_button"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="45dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="45dp"
-        android:padding="16dp"
-        android:text="@string/save_sobel_image"
-        android:textAlignment="center"
-        android:textSize="@dimen/text_button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/normal_image" />
-
-    <Button
-        android:id="@+id/change_image_button"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="45dp"
-        android:layout_marginTop="152dp"
-        android:layout_marginEnd="45dp"
-        android:padding="16dp"
-        android:text="@string/try_again"
-        android:textAlignment="center"
-        android:textSize="@dimen/text_button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/normal_image" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
